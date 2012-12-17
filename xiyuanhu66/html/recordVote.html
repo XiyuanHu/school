@@ -1,0 +1,39 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="right">
+        <p><h4>Welcome, {{ user }}</h4></p>
+    </div>
+    <hr>
+    <form action="/recordVote" method="post">
+    <div>Category:<input type="radio" checked="checked" name="category_key" value="{{category.key}}"/>{{category.name}}</div>
+    <div><i>You voted " {{ itemWin.name }} " over " {{ itemLose.name }} "</i></div>
+    <table border=1>
+        <tr>
+            <td align="center">Items</td>
+            <td align="center">Number of Wins</td>
+        </tr>
+        <tr>
+            <td align="center">{{ itemWin.name }}</td>
+            <td align="center">{{ itemWin.wins }}</td>
+        </tr>
+        <tr>
+            <td align="center">{{ itemLose.name }}</td>
+            <td align="center">{{ itemLose.wins }}</td>
+        </tr>
+    </table>
+    <hr>
+    
+        <div><input type="radio" name="win_lose" value="{{firstItem.name}}/{{secondItem.name}}"/>{{ firstItem.name }}</div>
+        <div><input type="radio" name="win_lose" value="{{secondItem.name}}/{{firstItem.name}}"/>{{ secondItem.name }}</div>
+        <div>
+            <input type="submit" name="recordVote" value="Vote">
+            <input type="submit" name="recordVote" value="Skip">
+        </div>
+    </form>
+<a href="/">Back to Home</a>
+</body>
+</html>

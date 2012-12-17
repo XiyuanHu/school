@@ -1,0 +1,35 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="right">
+        <p><h4>Welcome, {{ user }}</h4></p>
+    </div>
+    <hr>
+    <p>Category:<input type="radio" checked="checked" name="category_key" value="{{ category.key }}"/>{{ category.name }}</p>
+    {% for item in old_items %}
+        {% if item.name %}
+            <form action="editItem" method="post">
+                <p><input type="hidden" name="category_key" value="{{category.key}}"/></p>
+                <div>
+                    <input type="hidden" name="editedItem" value="{{item.key}}"/>
+                    <input type="text" name="item" value="{{item.name}}"/>
+                    <input type="submit" name='submit' value="Edit"/>
+                    <input type="submit" name='submit' value="Delete"/>
+                </div>
+            </form>
+        {% endif %}
+    {% endfor %}
+    <hr>
+    <p>New Item:</p>
+    <form action="addItem" method="post">
+        <p><input type="hidden" name="category_key" value="{{category.key}}"/></p>
+        <div><input type=textarea name="itemToAdd"><div>
+        <div><input type="submit" value="Add items"></div>
+    </form>
+           
+<a href="/">Back to Home</a>
+</body>
+</html>

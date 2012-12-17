@@ -1,0 +1,23 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="right">
+        <p><h4>Welcome, {{ user }}</h4></p>
+    </div>
+    <hr>
+    <div>Choose a category to vote:</div>
+    <form action="/vote" method="post">
+        {% for category in categorys %}
+            {% if category.name %}
+                <p><input type="radio" name="category_key" value="{{category.key}}">{{ category.name }}</p>
+            {% endif %}
+        {% endfor %}
+        <div><input type="submit" name="{{ action }}" value="Vote"></div>
+    </form>
+           
+<a href="/">Back to Home</a>
+</body>
+</html>

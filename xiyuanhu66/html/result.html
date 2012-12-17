@@ -1,0 +1,31 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="right">
+        <p><h4>Welcome, {{ user }}</h4></p>
+    </div>
+    <hr>
+    <div>Category:<input type="radio" checked="checked" name="category_key" value="{{category.key}}"/>{{category.name}}
+    <table border = 1>
+        <tr>
+            <td align="center">Items</td>
+            <td align="center">Number of Wins</td>
+            <td align="center">Number of Loses</td>
+        </tr>
+            
+    {% for item in items %}
+        {% if item.name %}
+            <tr>
+                <td align="center">{{item.name}}</td>
+                <td align="center">{{item.wins}}</td>
+                <td align="center">{{item.loses}}</td>
+            </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+    <a href="/">Back to Home</a>
+</body>
+</html>

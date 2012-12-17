@@ -1,0 +1,34 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="center">
+    <p><h1>Vote By Me!</h1></p>
+    <div>Welcome, {{ user }}</div>
+    <hr>
+    <p><h4>Manage your category/items</h4></p>
+    <form action="/addCategory" method="post">
+        <div><input type="submit" value="View Your Category"></div>
+    </form>    
+    <form action="/chooseCategoryToAddItems" method="post">
+        <div><input type="submit" value="View Your Items"></div>
+    </form>    
+    <hr>
+    <p><h4>Now,Vote!</h4></p>
+    <form action="/chooseCategoryToVote" method="post">
+        <div><input type="submit" value="Vote"></div>
+    </form>
+    
+    <form action="/chooseCategoryToResult" method="post">
+        <div><input type="submit" value="Result"></div>
+    </form>
+
+    <form action="/exportXML" method="post">
+        <div><input type="submit" value="Export to XML"></div>
+    </form>
+           
+    <a href="{{ url }}">{{ url_linktext }}</a>
+</body>
+</html>
