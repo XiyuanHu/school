@@ -10,6 +10,7 @@
     <hr>
     <form action="/recordVote" method="post">
     <div>Category: <input type = "radio" checked="checked" name="category_key" value="{{category.key}}"/> {{category.name}}</div>
+        <div><b><i>{{error_info}}</i></b></div>
     <div><input type="radio" name="win_lose" value="{{firstItem.name}}/{{secondItem.name}}"/>{{ firstItem.name }}</div>
     <div><input type="radio" name="win_lose" value="{{secondItem.name}}/{{firstItem.name}}"/>{{ secondItem.name }}</div>
     <div>

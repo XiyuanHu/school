@@ -12,7 +12,6 @@
     <div>Your categories:</div>
     <div align="center">
     {% for category in old_categorys %}
-        {% if category.name %}
             <form action="/editCategory" method="post">
                 <div>
                     <input type="hidden" name="editedCategory" value="{{category.key}}"/>
@@ -21,12 +20,12 @@
                     <input type="submit" name='submit' value="Delete"/>
                 </div>
             </form>
-         {% endif %}
     {% endfor %}
     </div>
     <hr>
     <p>New Category Name:</p>
     <div align="center">
+    <div>{{error_info}}<div>
     <form action = "/addCategory" method = "post">
         <div><input type=textarea name="categoryToAdd"></div>
         <div><input type="submit" value="Add Category"></div>

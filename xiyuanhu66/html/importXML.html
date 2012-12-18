@@ -1,0 +1,19 @@
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/main.css" />
+  <title>Home</title>
+</head>
+<body>
+    <div align="right">
+        <p><h4>Welcome, {{ user }}</h4></p>
+    </div>
+    <div><b>Add categories from *.xml file</b></div>
+    <hr>
+    <form enctype ="multipart/form-data" action = "/uploadXML" method="post">
+        <div>File:<input name="filename" type="file"/></div>
+        <div><input type="submit" value="Import Category"/></div>
+    </form>
+        <hr>
+<a href="/">Back to Home</a>
+</body>
+</html>

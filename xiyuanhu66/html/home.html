@@ -6,17 +6,24 @@
 <body>
     <div align="center">
     <p><h1>Vote By Me!</h1></p>
-    <div>Welcome, {{ user }}</div>
+    <div><b>Welcome, {{ user }}<b></div>
     <hr>
-    <p><h4>Manage your category/items</h4></p>
-    <form action="/addCategory" method="post">
-        <div><input type="submit" value="View Your Category"></div>
-    </form>    
-    <form action="/chooseCategoryToAddItems" method="post">
-        <div><input type="submit" value="View Your Items"></div>
-    </form>    
+    {% if user%}
+        <p><h4>Manage your category/items</h4></p>
+        <form action="/addCategory" method="post">
+            <div><input type="submit" value="View Your Category"></div>
+        </form>    
+        <form action="/chooseCategoryToAddItems" method="post">
+            <div><input type="submit" value="View Your Items"></div>
+        </form>
+        <form action="/importXML" method ="get">
+            <div><input type="submit" value="Import From XML"/></div>
+        </form>
+    {% else %}
+        <div><i>After login, you can manage your categories and items.<i></div>
+    {% endif %}
     <hr>
-    <p><h4>Now,Vote!</h4></p>
+    <p><h4><b>Now,Vote!</b></h4></p>
     <form action="/chooseCategoryToVote" method="post">
         <div><input type="submit" value="Vote"></div>
     </form>
@@ -25,10 +32,10 @@
         <div><input type="submit" value="Result"></div>
     </form>
 
-    <form action="/exportXML" method="post">
+    <form action="/exportXML" method="get">
         <div><input type="submit" value="Export to XML"></div>
     </form>
-           
+        
     <a href="{{ url }}">{{ url_linktext }}</a>
 </body>
 </html>

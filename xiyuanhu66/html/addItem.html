@@ -10,7 +10,6 @@
     <hr>
     <p>Category:<input type="radio" checked="checked" name="category_key" value="{{ category.key }}"/>{{ category.name }}</p>
     {% for item in old_items %}
-        {% if item.name %}
             <form action="editItem" method="post">
                 <p><input type="hidden" name="category_key" value="{{category.key}}"/></p>
                 <div>
@@ -20,10 +19,10 @@
                     <input type="submit" name='submit' value="Delete"/>
                 </div>
             </form>
-        {% endif %}
     {% endfor %}
     <hr>
     <p>New Item:</p>
+    <div>{{error_info}}</div>
     <form action="addItem" method="post">
         <p><input type="hidden" name="category_key" value="{{category.key}}"/></p>
         <div><input type=textarea name="itemToAdd"><div>
